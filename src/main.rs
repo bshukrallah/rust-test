@@ -1,3 +1,5 @@
+use std::io;
+
 fn main() {
     let mut x = 4; //mut means mutable, so we can change it, could also do let x = 5 instead of making it mutable
     println!("x is: {}", x);
@@ -13,6 +15,10 @@ fn main() {
 
     const SECONDS: u32 = 60; // Constant variable, cannot be changes, requires a data type
     println!("Seconds: {}", SECONDS);
+
+    //can also define like this:
+    let data = 50.50f32;
+    println!("{}", data);
 
 
     let n: i32 = 2; // assign a data type, could use i8, i16, i32 (signed int), u32 (unsigned int), f32, f64(float) etc
@@ -33,7 +39,7 @@ fn main() {
     println!("{}", tup.1);
     println!("{}", tup2.0);
 
-    let tup = (2, false, 'c');
+    tup = (2, false, 'c');
 
     println!("{}", tup.1);
 
@@ -50,4 +56,20 @@ fn main() {
     let value1: u8 = 4;
     let value2 = value1;
     println!("{} + {} = {}", value1, value2, value1+value2); //print multiple vars
+
+
+    //input
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("failed to read line"); //& is a reference, typically just (& input) would be immutable, so we add mut so we can change it
+    println!("{}", input);
+
+    //type casting
+
+    let floatx = 12.0f32;
+    let floaty = 10.0f64;
+    //These cannot be added together, as they are not the same type, they need to be cast to the same type
+
+    let floatz = (floatx as f64) / floaty;
+    println!("{}", floatz);
+    println!("{}", i32::MAX); //can get highest number for that data type
 }
