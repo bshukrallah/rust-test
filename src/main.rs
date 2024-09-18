@@ -113,6 +113,9 @@ fn main() {
     let s_len = calculate_length(&input);
     println!("The length of '{}' is {}", input.trim(), s_len);
 
+    let add_nums = add_numbers(1, 2);
+    println!("Add numbers function returned + 100: {}", add_nums);
+
     //*********
     //conditions
     //*********
@@ -134,10 +137,17 @@ fn main() {
         println!("Wrong");
     }
 
+
+
 }
 
 
 // -> return type, could String or i32, etc, use usize or isize for sizes, memory or indexing
 fn calculate_length(s: &str) -> usize {
-    s.trim().len()
+    return s.trim().len() 
+}
+
+fn add_numbers(num1: i32, num2: i32) -> i32 {
+    let x = num1 + num2;
+    return x + 100; //no ; because it's returning
 }
