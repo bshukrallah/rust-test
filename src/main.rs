@@ -47,6 +47,9 @@ fn main() {
 
     println!("{}", tup.1);
 
+    let new_tuple = ("Text", 23, true, [1,2,3,4,5]);
+    println!("New Tuple: {:?}", new_tuple);
+
     //*********
     //array
     //*********
@@ -62,8 +65,28 @@ fn main() {
 
     let value1: u8 = 4;
     let value2 = value1;
-    println!("{} + {} = {}", value1, value2, value1+value2); //print multiple vars
+    println!("Array: {} + {} = {}", value1, value2, value1+value2); //print multiple vars
 
+    //*********
+    //slicing
+    //*********
+
+    let number_slices: &[i32] = &[1,2,3,4,5];
+    println!("Number slices: {:?}", number_slices);
+
+    let animal_slices: &[&str] = &["Lion", "Cobra", "Elephant", "Crocodile"];
+    println!("Animal Slices: {:?}", animal_slices);
+
+    let language_slices: &[&String] = &[&"Rust".to_string(), &"Python".to_string(), &"C++".to_string(), &"Java".to_string()];
+    println!("Language Slices: {:?}", language_slices);
+
+
+    //Strings are growable, and mutable
+    let mut short_string: String = String::from("Hello");
+    short_string.push_str(" there!");
+    println!("{}", short_string);   
+    let slice: &str = &short_string[0..5];
+    println!("Original: {} -- sliced: {}", short_string, slice);   
     //*********
     //input
     //*********
